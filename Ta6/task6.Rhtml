@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>CZ4073 Assignment 1 Task 6</title>
+</head>
+<style>
+body {
+  font-family: sans-serif;
+}
+</style>
+
+<body>
+<!--begin.rcode,echo=FALSE
+df2html <- function(df) {
+  stopifnot(is.data.frame(df)) # Only applies this to data frame
+  
+  ret <- "<table>"
+  df_colnames <- colnames(df)
+  
+  # Construct table header
+  ret <- paste(ret, "<thead>", sep="")
+  ret <- paste(ret, "<tr>", sep="")
+  for (colname in df_colnames) {
+    ret <- paste(ret, "<th>", sep="")
+    ret <- paste(ret, colname, sep="")
+    ret <- paste(ret, "</th>", sep="")
+  }
+  ret <- paste(ret, "</tr>", sep="")
+  ret <- paste(ret, "</thead>", sep="")
+  
+  # Construct table body
+  ret <- paste(ret, "<tbody>", sep="")
+  for (i in 1:nrow(df)) {
+    ret <- paste(ret, "<tr>", sep="")
+    for (colname in df_colnames) {
+      ret <- paste(ret, "<td>", sep="")
+      ret <- paste(ret, df[i,colname], sep="")
+      ret <- paste(ret, "</td>", sep="")
+    }
+    ret <- paste(ret, "</tr>", sep="")
+  }
+  ret <- paste(ret, "</tbody>", sep="")
+  
+  ret <- paste(ret, "</table>", sep="")
+  
+  ret
+}
+end.rcode-->
+<h1>Data Frame to HTML table</h1>
+
+<address>By Kenrick <a href="mailto:kenr0002@e.ntu.edu.sg">kenr0002@e.ntu.edu.sg</a>, U1320141J</address>
+
+<blockquote>Write a function which generates HTML code presenting in table form the content of a data frame given as its input. Generate a knitr-based report which demonstrates the use of this function for the following data frames: <strong>cars</strong>, <strong>Orange</strong>, <strong>Puromycin</strong> and <strong>iris</strong>. Submit the Rhtml code and the resulting HTML page.</blockquote>
+
+<h2>cars</h2>
+<!--begin.rcode results='asis',echo=FALSE
+cat(df2html(cars))
+end.rcode-->
+
+<h2>Orange</h2>
+<!--begin.rcode results='asis',echo=FALSE
+cat(df2html(Orange))
+end.rcode-->
+
+<h2>Puromycin</h2>
+<!--begin.rcode results='asis',echo=FALSE
+cat(df2html(Puromycin))
+end.rcode-->
+
+<h2>iris</h2>
+<!--begin.rcode results='asis',echo=FALSE
+cat(df2html(iris))
+end.rcode-->
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# I'm using iris dataset\n# let x be sepal.length; and y be petal.length\nfd <- data.frame(x = iris$Sepal.Length, y = iris$Petal.Length)\n\n# Task 1a\nremoveHalfX <- function(fdp) {\n  ret = fdp\n  med = median(fdp$y)\n  ret$x[ret$y > med] <- NA\n  return(ret)\n}\nad <- removeHalfX(fd)\n\n# Task 1b\nmodel1 <- lm(x ~ y, data=ad)\nfitad <- ad\nfitad$x <- predict(model1, ad)\n\n# Task 1c\nmodel2 <- lm(x ~ y, data=fd)\nfitfd <- fd\nfitfd$x <- predict(model1, fd)\n\n# Task 1d\npar(mfrow=c(1,2), pch = 16, cex = 0.75)\nplot(fd, col=\"red\", main = \"Full data\")\npoints(fitfd)\n\nplot(ad, col=\"red\", main = \"Available data\")\npoints(fitad)\n",
+    "created" : 1473568835052.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1443177890",
+    "id" : "58C0C1B6",
+    "lastKnownWriteTime" : 1474375879,
+    "last_content_update" : 1474375879352,
+    "path" : "D:/Cloud/GitHub/LearnR/As1/Ta1/script.R",
+    "project_path" : "script.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
